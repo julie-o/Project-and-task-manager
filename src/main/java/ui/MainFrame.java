@@ -34,6 +34,8 @@ public class MainFrame extends JFrame {
         frame = this;
 
         createButton();
+        buttonPanel.add(createNew);
+
         pinnedProjects();
         getTasklists();
         getProjects();
@@ -58,9 +60,11 @@ public class MainFrame extends JFrame {
     }
 
     public void createButton() {
-        createNew.addItem("contenttypes.Task");
-        createNew.addItem("contenttypes.Tasklist");
-        createNew.addItem("contenttypes.Project");
+        createNew = new JComboBox();
+
+        createNew.addItem("Task");
+        createNew.addItem("Tasklist");
+        createNew.addItem("Project");
 
         createNew.setRenderer(new ComboBoxRenderer("Create New"));
         createNew.setSelectedIndex(-1);
@@ -70,11 +74,11 @@ public class MainFrame extends JFrame {
         createNew.addActionListener(e -> {
             JComboBox cbox = (JComboBox) e.getSource();
             String selected = cbox.getSelectedItem().toString();
-            if (selected.equals("contenttypes.Task")){
+            if (selected.equals("Task")){
                 createTaskFrame newtask = new createTaskFrame(frame);
-            } else if (selected.equals("contenttypes.Tasklist")) {
+            } else if (selected.equals("Tasklist")) {
                 createTasklistFrame newtasklist = new createTasklistFrame(frame);
-            } else if (selected.equals("contenttypes.Project")) {
+            } else if (selected.equals("Project")) {
                 createProjectFrame newproject = new createProjectFrame(frame);
             } else {}
         });

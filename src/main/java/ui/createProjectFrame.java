@@ -19,6 +19,7 @@ public class createProjectFrame extends JFrame {
 
     public createProjectFrame(MainFrame frame) {
 
+        tagError = new JTextArea();
         tagError.setVisible(false);
         tagError.setEditable(false);
         tagError.setWrapStyleWord(true);

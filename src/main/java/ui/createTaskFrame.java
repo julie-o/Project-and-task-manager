@@ -21,14 +21,13 @@ public class createTaskFrame extends JFrame {
     private JCheckBox activeMarker;
     private JLabel activeLabel;
     private JTextArea tagError;
-    private boolean active;
-    private utils.Controller cont;
+    private final utils.Controller cont;
     private contenttypes.Tasklist tasklist;
 
     public createTaskFrame(MainFrame frame) {
         cont = utils.Controller.getInstance();
         dropdownMenu(0);
-        active = false;
+        boolean active = false;
 
         tagError.setVisible(false);
         tagError.setEditable(false);

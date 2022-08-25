@@ -21,7 +21,7 @@ public class createTasklistFrame extends JFrame {
     private JTextPane batchTasks;
     private JLabel tasksLabel;
     private JLabel dropdownLabel;
-    private JComboBox projectDropdown;
+    private JComboBox<contenttypes.Project> projectDropdown;
     private JTextArea tagError;
     private utils.Controller cont;
     private contenttypes.Project project;
@@ -77,6 +77,7 @@ public class createTasklistFrame extends JFrame {
     }
 
     public void dropdownMenu(){
+        projectDropdown = new JComboBox<>();
         Map<Integer, contenttypes.Project> map =  cont.getProjectHashMap();
         for (int key:map.keySet()) {
             projectDropdown.addItem(cont.getProjectHashMap().get(key));

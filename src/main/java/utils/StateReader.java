@@ -30,7 +30,7 @@ public class StateReader {
     }
 
     private void fileCreator() throws IOException {
-        String[] filenames = {"data/active.csv","data/tasks.csv","data/tasklists.csv","data/projects.csv"};
+        String[] filenames = {"active.csv","tasks.csv","tasklists.csv","projects.csv"};
 
         for (String name:filenames){
             File file = new File(name);
@@ -49,7 +49,7 @@ public class StateReader {
         String task = "";
         try
         {
-            BufferedReader buffer = new BufferedReader(new FileReader("data/active.csv"));
+            BufferedReader buffer = new BufferedReader(new FileReader("active.csv"));
             while ((task = buffer.readLine()) != null)
             {
                 if (lineEmpty(task)){
@@ -71,7 +71,7 @@ public class StateReader {
         String task = "";
         try
         {
-            BufferedReader buffer = new BufferedReader(new FileReader("data/tasks.csv"));
+            BufferedReader buffer = new BufferedReader(new FileReader("tasks.csv"));
             while ((task = buffer.readLine()) != null)
             {
                 if (lineEmpty(task)){
@@ -106,7 +106,7 @@ public class StateReader {
         String tasklist = "";
         try
         {
-            BufferedReader buffer = new BufferedReader(new FileReader("data/tasklists.csv"));
+            BufferedReader buffer = new BufferedReader(new FileReader("tasklists.csv"));
             while ((tasklist = buffer.readLine()) != null)
             {
                 if (lineEmpty(tasklist)){
@@ -114,19 +114,25 @@ public class StateReader {
                 }
                 String[] tasklistAsArray = tasklist.split(",");
 
+                System.out.println("one");
                 contenttypes.Tasklist newTasklist = new contenttypes.Tasklist(Integer.parseInt(tasklistAsArray[0]),
                         tools.removeQuotes(tasklistAsArray[1]),
                         tools.removeQuotes(tasklistAsArray[2]),
                         cont.tagSplitter(tools.removeQuotes(tasklistAsArray[3]),";"));
 
+
                 String[] taskIDs = (tools.removeQuotes(tasklistAsArray[4])).split(";");
                 for (String taskID:taskIDs){
                     if (!taskID.isBlank()&&!taskID.isEmpty()){
+                        System.out.println("+" + taskID);
                         newTasklist.addTask(cont.getTasksHashMap().get(Integer.parseInt(taskID)));
                     }
                 }
 
+                System.out.println(tasklistAsArray[5]);
                 newTasklist.setProject(Integer.parseInt(tasklistAsArray[5]));
+
+                System.out.println("four");
 
                 cont.addTasklist(newTasklist);
             }
@@ -141,7 +147,7 @@ public class StateReader {
         String project = "";
         try
         {
-            BufferedReader buffer = new BufferedReader(new FileReader("data/projects.csv"));
+            BufferedReader buffer = new BufferedReader(new FileReader("projects.csv"));
             while ((project = buffer.readLine()) != null)
             {
                 if (lineEmpty(project)){

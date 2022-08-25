@@ -57,6 +57,7 @@ public class openProjectFrame extends JFrame {
         setTags();
         existingListPopup();
 
+        tagError = new JTextArea();
         tagError.setVisible(false);
         tagError.setEditable(false);
         tagError.setWrapStyleWord(true);

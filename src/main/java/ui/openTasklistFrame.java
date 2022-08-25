@@ -35,6 +35,7 @@ public class openTasklistFrame extends JFrame {
     private contenttypes.Project project;
 
     public openTasklistFrame(MainFrame frame, contenttypes.Tasklist tasklist) {
+
         this.cont = utils.Controller.getInstance();
         this.frame = frame;
         this.tasklist = tasklist;

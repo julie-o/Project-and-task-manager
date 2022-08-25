@@ -26,7 +26,7 @@ public class StateWriter {
     }
 
     private void taskWriter() throws IOException {
-        File csvFile = new File("data/tasks.csv");
+        File csvFile = new File("tasks.csv");
         FileWriter fileWriter = new FileWriter(csvFile);
 
         Map<Integer, contenttypes.Task> map = cont.getTasksHashMap();
@@ -38,7 +38,7 @@ public class StateWriter {
     }
 
     private void tasklistWriter() throws IOException {
-        File csvFile = new File("data/tasklists.csv");
+        File csvFile = new File("tasklists.csv");
         FileWriter fileWriter = new FileWriter(csvFile);
 
         Map<Integer, contenttypes.Tasklist> map = cont.getTasklistsHashMap();
@@ -50,7 +50,7 @@ public class StateWriter {
     }
 
     private void projectWriter() throws IOException {
-        File csvFile = new File("data/projects.csv");
+        File csvFile = new File("projects.csv");
         FileWriter fileWriter = new FileWriter(csvFile);
 
         Map<Integer, contenttypes.Project> map = cont.getProjectHashMap();
@@ -62,7 +62,7 @@ public class StateWriter {
     }
 
     private void activeWriter() throws IOException {
-        File csvFile = new File("data/active.csv");
+        File csvFile = new File("active.csv");
         FileWriter fileWriter = new FileWriter(csvFile);
 
         StringBuilder line = new StringBuilder();

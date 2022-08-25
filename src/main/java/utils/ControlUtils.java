@@ -14,22 +14,20 @@ public class ControlUtils {
     }
 
     public String includesSpecialCharacter(String text){
-        String foundChars = "";
+        StringBuilder foundChars = new StringBuilder();
 
-        // TODO add blank char as acceptable
-        //Pattern checkPattern = Pattern.compile("[^a-zA-Z0-9åäöÅÄÖ ]");
         Pattern checkPattern = Pattern.compile("[^\\p{L}0-9 ]");
         Matcher match = checkPattern.matcher(text);
 
         for (int i = 0; i < text.length(); i++) {
             if (match.find()) {
-                if (!foundChars.contains(match.group(0))){{
-                    foundChars = foundChars + match.group(0);
+                if (!foundChars.toString().contains(match.group(0))){{
+                    foundChars.append(match.group(0));
                 }}
             }
         }
 
-        return foundChars;
+        return foundChars.toString();
     }
 
     public String removeQuotes(String input){

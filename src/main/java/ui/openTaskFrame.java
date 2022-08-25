@@ -24,12 +24,14 @@ public class openTaskFrame extends JFrame {
     private JLabel dropdownLabel;
     private JLabel activeLabel;
     private JTextArea tagError;
-    private contenttypes.Tasklist tasklist;
 
+    private contenttypes.Tasklist tasklist;
     private utils.Controller cont;
     private contenttypes.Task task;
 
     public openTaskFrame(MainFrame frame, contenttypes.Task task) {
+        initAll();
+
         cont = utils.Controller.getInstance();
         this.task = task;
 
@@ -72,6 +74,17 @@ public class openTaskFrame extends JFrame {
         setVisible(true);
         pack();
         setLocationRelativeTo(null);
+    }
+
+    private void initAll() {
+        desc = new JTextPane();
+        name = new JTextField();
+        tags = new JTextField();
+        tasklistDropdown = new JComboBox();
+        activeMarker = new JCheckBox();
+        saveButton = new JButton();
+        detailsPanel = new JPanel();
+        tagError = new JTextArea();
     }
 
     public void setTags(){
